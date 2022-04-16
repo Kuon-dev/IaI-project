@@ -50,8 +50,22 @@
       <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
       <script>
             const styleOptions = {
-                // Add styleOptions to customize web chat canvas
                 hideUploadButton: true,
+                botAvatarImage: 'https://cdn.discordapp.com/attachments/831057296813457418/964772179256422430/unknown.png',
+                botAvatarInitials: 'MB',
+    
+                userAvatarInitials: 'You'
+            };
+            const styleSet = window.WebChat.createStyleSet({
+                bubbleBackground: 'rgba(0, 0, 255, .1)',
+                bubbleFromUserBackground: 'rgba(0, 255, 0, .1)',
+                rootHeight: '100%',
+                backgroundColor: '#cfffef'
+            });
+            styleSet.textContent = {
+                ...styleSet.textContent,
+                fontFamily: "'Helvetica', san-serif",
+                fontSize: "1.3rem",
             };
 
             // Add your BOT ID below
@@ -82,8 +96,8 @@
                  }
                  return next(action);
               }
-           );
-           fetch(theURL)
+            );
+            fetch(theURL)
                 .then(response => response.json())
                 .then(conversationInfo => {
                     window.WebChat.renderWebChat(
@@ -91,6 +105,7 @@
                             directLine: window.WebChat.createDirectLine({
                                 token: conversationInfo.token,
                             }),
+                            styleSet,
                             store: store,
                             styleOptions: styleOptions
                         },
@@ -98,6 +113,9 @@
                     );
                 })
                 .catch(err => console.error("An error occurred: " + err));
+            
+        </script>
+        <script>
         </script>
     </body>
 </html>
