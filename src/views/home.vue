@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="pgContainer">
     <mersbot/>
     <section>
         <div class="bg-cover pantai h-[45rem] divCenter flex-col">
@@ -33,7 +33,7 @@
             </div>
         </div>
     </section>
-    <section class="mt-[10rem] px-[20rem] flex flex-col gap-8 py-20">
+    <section class="mt-[10rem] xl:px-[20rem] px-20 flex flex-col gap-8 py-20">
         <div>
             <h2 class="text-3xl font-bold">Mersing Overview</h2>
             <p class="text-xl">
@@ -86,5 +86,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (min-width: 1920px) {
+    .pgContainer {
+        padding: 0 10rem;
+    }
 }
 </style>
